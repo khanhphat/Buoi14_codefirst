@@ -46,13 +46,18 @@
                 @*đọc CSDL hiện ds các loại*@
                 <div class="panel">
                     <div class="panel-heading">
-                      <a href="#" class="list-group-item">Điện thoại</a>
+                      
                           Chủng Loại
                     </div>
-                    <div class="panel-body"> @*có bao nhiêu loại sẽ để trong thẻ a*@
-                        @{ 
+                    <div class="panel-body">
+                        @*có bao nhiêu loại sẽ để trong thẻ a*@
+                        @{
                             MyDbContext ctx = new MyDbContext();
                             var dsLoai = ctx.Loais.ToList();
+                        }
+                        @foreach (var it in dsLoai)
+                        {
+                            <a href="#" class="list-group-item">@it.TenLoai</a>
                         }
                     </div>
                 </div>

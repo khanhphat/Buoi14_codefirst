@@ -26,9 +26,11 @@ namespace Buoi14_codefirst.Models
         /// <summary>
         /// chỉ định loại CSDL dùng và chuỗi kết nối
         /// </summary>
-        public override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //chỉ định loại CSDL dùng và kết nối 
+            //đọc chuỗi kết nối từ appsetting.json
+            optionsBuilder.UseSqlServer("Server=.; Database=EFCodeFirst; Integrated Security = true;");
         }
     }
 }
